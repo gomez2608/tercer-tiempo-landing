@@ -199,7 +199,7 @@ export default function Home() {
                   </CardHeader>
                   <CardContent className="p-4 pt-0">
                     <p className="text-muted-foreground">
-                      Get detailed insights into your team's performance and project progress with our powerful
+                      Get detailed insights into your team&apos;s performance and project progress with our powerful
                       analytics tools.
                     </p>
                   </CardContent>
@@ -370,7 +370,7 @@ export default function Home() {
                 </Badge>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Simple, transparent pricing</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl">
-                  Choose the plan that's right for your team. All plans include a 14-day free trial.
+                  Choose the plan that&apos;s right for your team. All plans include a 14-day free trial.
                 </p>
               </div>
             </div>
