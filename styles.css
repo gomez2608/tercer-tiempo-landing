@@ -1,0 +1,14 @@
+/* ...existing code... */
+
+.navbar {
+    width: 100%;
+    /* ...existing code... */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* ...existing code... */
