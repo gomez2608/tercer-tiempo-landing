@@ -267,7 +267,7 @@ export default function Home() {
                 </Badge>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Loved by teams worldwide</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl">
-                  Don't just take our word for it. Here's what our customers have to say.
+                Don&apos;t just take our word for it. Here&apos;s what our customers have to say.
                 </p>
               </div>
             </div>
@@ -281,8 +281,8 @@ export default function Home() {
                       ))}
                     </div>
                     <p className="text-muted-foreground">
-                      "StreamLine has completely transformed how our team works together. The interface is intuitive and
-                      the features are exactly what we needed."
+                    &ldquo;StreamLine has completely transformed how our team works together. The interface is intuitive and
+                    the features are exactly what we needed.&rdquo;
                     </p>
                   </div>
                   <div className="mt-6 flex items-center space-x-3">
@@ -309,8 +309,8 @@ export default function Home() {
                       ))}
                     </div>
                     <p className="text-muted-foreground">
-                      "We've tried many project management tools, but StreamLine is by far the best. It's helped us
-                      increase productivity by 35%."
+                    &ldquo;We&apos;ve tried many project management tools, but StreamLine is by far the best. It&apos;s helped us
+                    increase productivity by 35%.&rdquo;
                     </p>
                   </div>
                   <div className="mt-6 flex items-center space-x-3">
@@ -337,8 +337,8 @@ export default function Home() {
                       ))}
                     </div>
                     <p className="text-muted-foreground">
-                      "The analytics features alone are worth the investment. We now have clear visibility into our
-                      project timelines and resource allocation."
+                    &ldquo;The analytics features alone are worth the investment. We now have clear visibility into our
+                    project timelines and resource allocation.&rdquo;
                     </p>
                   </div>
                   <div className="mt-6 flex items-center space-x-3">
