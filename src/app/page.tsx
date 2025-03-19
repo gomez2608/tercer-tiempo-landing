@@ -201,7 +201,7 @@ export default function Home() {
 
         
         {/* Pricing Section */}
-        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+        <section id="services" className="w-full py-8 md:py-20 lg:py-26 bg-muted/50">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <Badge variant="default" className="px-3 py-1">
@@ -323,7 +323,7 @@ export default function Home() {
 
 
         {/* Features Section */}
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
+        <section id="features" className="w-full  bg-muted/50">
           
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -394,7 +394,7 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="testimonials" className="w-full ">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <Badge variant="default" className="px-3 py-1">
