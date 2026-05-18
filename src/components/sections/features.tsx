@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Clock,
   CloudRainWind,
@@ -5,6 +7,8 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react";
+
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 type Feature = {
   icon: LucideIcon;
@@ -42,7 +46,8 @@ const features: Feature[] = [
 export function Features() {
   return (
     <section id="features" className="bg-ink py-24 md:py-32">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+      <ScrollReveal>
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="max-w-2xl">
           <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-lime">
             Por qué Tercer tiempo
@@ -73,7 +78,8 @@ export function Features() {
             </div>
           ))}
         </div>
-      </div>
+        </div>
+      </ScrollReveal>
     </section>
   );
 }

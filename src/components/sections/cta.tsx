@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import {
   mailtoUrl,
@@ -20,7 +23,8 @@ export function CallToAction() {
             "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(198,255,91,0.12), transparent 60%)",
         }}
       />
-      <div className="mx-auto max-w-2xl px-6 text-center">
+      <ScrollReveal>
+        <div className="mx-auto max-w-2xl px-6 text-center">
         <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-lime">
           Cierre
         </span>
@@ -49,7 +53,8 @@ export function CallToAction() {
             o escríbenos a {site.email}
           </Link>
         </div>
-      </div>
+        </div>
+      </ScrollReveal>
     </section>
   );
 }

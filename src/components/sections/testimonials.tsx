@@ -1,13 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import { Star } from "lucide-react";
 
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { testimonialImages } from "@/lib/images";
 import { testimonials } from "@/lib/site-config";
 
 export function Testimonials() {
   return (
     <section id="testimonials" className="bg-ink py-24 md:py-32">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+      <ScrollReveal>
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="max-w-2xl">
           <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-lime">
             Opiniones
@@ -56,7 +60,8 @@ export function Testimonials() {
             </figure>
           ))}
         </div>
-      </div>
+        </div>
+      </ScrollReveal>
     </section>
   );
 }

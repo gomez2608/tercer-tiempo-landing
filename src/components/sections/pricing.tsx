@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { Check } from "lucide-react";
 
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -16,7 +19,8 @@ import { cn } from "@/lib/utils";
 export function Pricing() {
   return (
     <section id="services" className="bg-ink py-24 md:py-32">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+      <ScrollReveal>
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="max-w-2xl">
           <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-lime">
             Servicios
@@ -100,7 +104,8 @@ export function Pricing() {
             </Card>
           ))}
         </div>
-      </div>
+        </div>
+      </ScrollReveal>
     </section>
   );
 }

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { GalleryLightbox } from "@/components/gallery-lightbox";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { galleryImages } from "@/lib/images";
 import { gallery } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
@@ -19,7 +20,8 @@ export function Gallery() {
 
   return (
     <section id="gallery" className="bg-ink py-24 md:py-32">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+      <ScrollReveal>
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="max-w-2xl">
           <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-lime">
             La cancha
@@ -56,7 +58,8 @@ export function Gallery() {
             </button>
           ))}
         </div>
-      </div>
+        </div>
+      </ScrollReveal>
 
       <GalleryLightbox
         open={openAt !== null}

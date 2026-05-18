@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { OpenNowBadge } from "@/components/open-now-badge";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { businessHours, location } from "@/lib/site-config";
 
@@ -24,7 +27,8 @@ export function Visit() {
 
   return (
     <section id="visit" className="bg-ink py-24 md:py-32">
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+      <ScrollReveal>
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10">
         <div className="overflow-hidden rounded-3xl border border-hairline bg-surface md:grid md:grid-cols-2">
           {/* Info column */}
           <div className="flex flex-col gap-7 p-8 md:p-12">
@@ -140,7 +144,8 @@ export function Visit() {
             )}
           </div>
         </div>
-      </div>
+        </div>
+      </ScrollReveal>
     </section>
   );
 }
