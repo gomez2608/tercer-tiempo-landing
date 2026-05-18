@@ -34,9 +34,6 @@ export const metadata: Metadata = {
     title: site.name,
     description: site.description,
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export const viewport: Viewport = {
@@ -52,6 +49,7 @@ export default function RootLayout({
     <html lang="es" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-ink text-fg antialiased`}
+        suppressHydrationWarning
       >
         {children}
       </body>

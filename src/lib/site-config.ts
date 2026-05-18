@@ -32,7 +32,7 @@ export const location = {
 
 export const hero = {
   kicker: "Tercer Tiempo · Ubaté",
-  headline: { line1: "Tu cancha.", line2: "Al 100." },
+  headline: { line1: "Tu equipo.", line2: "Tu cancha." },
   sub: "La sintética cubierta de Ubaté, abierta todos los días de 3 pm a 9 pm. Reserva en un mensaje.",
   trust: {
     enabled: true,
