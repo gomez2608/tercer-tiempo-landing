@@ -22,10 +22,14 @@ export function GalleryLightbox({
   startIndex: number;
 }) {
   const [index, setIndex] = useState(startIndex);
+  const [prevOpen, setPrevOpen] = useState(open);
 
-  useEffect(() => {
+  // Reset index to startIndex whenever the lightbox transitions to open.
+  // Using the prev-prop pattern instead of an effect avoids a cascading render.
+  if (prevOpen !== open) {
+    setPrevOpen(open);
     if (open) setIndex(startIndex);
-  }, [open, startIndex]);
+  }
 
   const item = gallery[index];
 

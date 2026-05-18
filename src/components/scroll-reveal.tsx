@@ -19,6 +19,9 @@ export function ScrollReveal({
   useEffect(() => {
     if (!ref.current) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // Intentional one-shot: bypass the IntersectionObserver entirely for
+      // reduced-motion users so content is visible without waiting to scroll.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setVisible(true);
       return;
     }

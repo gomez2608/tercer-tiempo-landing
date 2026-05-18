@@ -25,6 +25,8 @@ export function useSectionNavigation() {
     if (!window.location.hash) return;
 
     const section = window.location.hash.substring(1) as NavId;
+    // Intentional one-shot: sync active link with the URL hash on first mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setActiveSection(section);
 
     const id = window.setTimeout(() => {
