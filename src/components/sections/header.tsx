@@ -94,7 +94,7 @@ export function Header() {
               <span className="sr-only">Abrir menú</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-ink">
+          <SheetContent side="right" className="bg-ink p-6">
             <nav className="mt-8 flex flex-col gap-5">
               {navLinks.map(({ id, label }) => (
                 <Link
