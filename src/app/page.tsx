@@ -7,6 +7,7 @@ import { Hero } from "@/components/sections/hero";
 import { Pricing } from "@/components/sections/pricing";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Visit } from "@/components/sections/visit";
+import { StickyMobileCTA } from "@/components/sticky-mobile-cta";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <CallToAction />
       </main>
       <Footer />
+      <StickyMobileCTA />
     </div>
   );
 }
