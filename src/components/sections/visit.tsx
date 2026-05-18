@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { OpenNowBadge } from "@/components/open-now-badge";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { Button } from "@/components/ui/button";
+import { formatHour } from "@/lib/format-time";
 import { businessHours, location } from "@/lib/site-config";
 
 const DAY_GROUPS = [
@@ -13,12 +14,6 @@ const DAY_GROUPS = [
   { label: "Sáb", ids: [6] },
   { label: "Dom", ids: [0] },
 ] as const;
-
-function formatHour(h: number) {
-  const period = h >= 12 ? "PM" : "AM";
-  const hour12 = h % 12 === 0 ? 12 : h % 12;
-  return `${hour12}:00 ${period}`;
-}
 
 export function Visit() {
   const todayDow = new Date().getDay();

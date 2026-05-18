@@ -33,25 +33,34 @@ The page is composed of **section components** assembled in `src/app/page.tsx`. 
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # Root layout, fonts, metadata, lang="es"
-│   ├── page.tsx            # Composes Header + sections + Footer
-│   ├── globals.css         # Tailwind v4 theme + design tokens
+│   ├── layout.tsx          # Root layout, fonts, metadata, lang="es", html.dark
+│   ├── page.tsx            # Composes Header + 7 sections + Footer + StickyMobileCTA
+│   ├── globals.css         # Tailwind v4 theme + Direction A design tokens
 │   └── imgs/               # Static image assets (imported as ES modules)
 ├── components/
 │   ├── sections/           # One file per landing section
 │   │   ├── header.tsx      # Sticky nav (desktop + mobile Sheet)
-│   │   ├── hero.tsx        # #about
+│   │   ├── hero.tsx        # #about — CSS gradient bg, OpenNowBadge eyebrow
 │   │   ├── pricing.tsx     # #services — renders from `plans` config
-│   │   ├── features.tsx    # #features — features list inlined here
+│   │   ├── features.tsx    # #features — 2x2 grid, features inlined here
+│   │   ├── gallery.tsx     # #gallery — mosaic + lightbox
 │   │   ├── testimonials.tsx# #testimonials — renders from `testimonials` config
-│   │   ├── cta.tsx         # #contact
+│   │   ├── visit.tsx       # #visit — hours table + Google Maps embed/fallback
+│   │   ├── cta.tsx         # #contact — final CTA
 │   │   └── footer.tsx
-│   └── ui/                 # shadcn primitives
+│   ├── ui/                 # shadcn primitives
+│   ├── gallery-lightbox.tsx # Radix Dialog lightbox (keyboard nav)
+│   ├── open-now-badge.tsx  # Eyebrow/pill badge driven by useOpenNow
+│   ├── scroll-reveal.tsx   # IntersectionObserver fade-up wrapper
+│   ├── sticky-mobile-cta.tsx # Sticky WhatsApp button (mobile only)
+│   └── wordmark.tsx        # Typographic logo (no image)
 ├── hooks/
-│   └── use-section-navigation.ts  # Smooth-scroll + active-link state
+│   ├── use-section-navigation.ts # Smooth-scroll + active-link state
+│   └── use-open-now.ts     # Reads businessHours, returns open/closed state
 └── lib/
-    ├── site-config.ts      # Single source of truth: phone, email, socials, nav, plans, testimonials
-    ├── images.ts           # Centralized image imports
+    ├── site-config.ts      # Single source of truth: phone, email, socials, nav, plans, testimonials, hero, gallery, location, businessHours
+    ├── images.ts           # Centralized image imports + galleryImages map
+    ├── format-time.ts      # formatHour() helper used by Visit and Footer
     └── utils.ts            # `cn()` helper
 ```
 
@@ -63,7 +72,7 @@ src/
 - **Active-section highlight**: lives in `useSectionNavigation()`. It tracks the last *clicked* link and the URL hash on mount — it does **not** observe scroll position. If you want true scroll-spy behavior, swap in an `IntersectionObserver`.
 - **Images**: import via `@/lib/images` (`images.logo`, `images.fondo`, etc.) instead of importing directly from `@/app/imgs/...`. Keeps asset paths in one place. Filenames are kebab-case — keep them that way.
 - **External links**: always include `target="_blank" rel="noopener noreferrer"` together. The `whatsappUrl()` helper assumes its result is opened in a new tab.
-- **`"use client"`**: only `header.tsx`, `footer.tsx`, and `use-section-navigation.ts` are client components (they need DOM access for smooth scroll). Sections without interactivity stay server components.
+- **`"use client"`**: most sections are client components because they wrap their content in `<ScrollReveal>` (IntersectionObserver). The exception is `hero.tsx`, which stays a server component — its only interactive child (`OpenNowBadge`) is itself a client island. The hero is above the fold so it doesn't need scroll-reveal anyway. Header, Footer, Gallery, and Visit are also client because of their own DOM/state needs (scroll-blur, smooth-scroll nav, lightbox state, day-of-week computation).
 
 ## Visual system
 

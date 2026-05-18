@@ -25,7 +25,9 @@ export const testimonialImages: Record<string, StaticImageData> = {
   luis,
 };
 
-// Gallery images (v1: reuses existing assets; replace with curated photos later)
+// TODO(gallery): three of these keys (g-detail-1, g-day-1, g-teams-1) currently
+// reuse the testimonial portrait photos as placeholders. Replace with real or
+// curated pitch photos under src/app/imgs/gallery/ and update the imports below.
 export const galleryImages: Record<string, StaticImageData> = {
   "g-night-1": fondo,
   "g-field-1": balon,

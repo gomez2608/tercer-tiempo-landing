@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { Wordmark } from "@/components/wordmark";
 import { useSectionNavigation } from "@/hooks/use-section-navigation";
+import { formatHour } from "@/lib/format-time";
 import { images } from "@/lib/images";
 import {
   businessHours,
@@ -33,7 +34,7 @@ export function Footer() {
     (productLinkIds as readonly string[]).includes(l.id),
   );
 
-  const hoursLabel = `${businessHours.open.hour - 12}:00 PM — ${businessHours.close.hour - 12}:00 PM`;
+  const hoursLabel = `${formatHour(businessHours.open.hour, businessHours.open.minute)} — ${formatHour(businessHours.close.hour, businessHours.close.minute)}`;
 
   return (
     <footer className="border-t border-hairline bg-ink py-16">
