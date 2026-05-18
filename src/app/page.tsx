@@ -17,10 +17,10 @@ export default function Home() {
         <Hero />
         <Pricing />
         <Features />
-        <Gallery />
-        <Testimonials />
         <Visit />
         <CallToAction />
+        <Gallery />
+        <Testimonials />
       </main>
       <Footer />
       <StickyMobileCTA />

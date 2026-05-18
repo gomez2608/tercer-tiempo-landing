@@ -93,9 +93,9 @@ export const mailtoUrl = `mailto:${site.email}`;
 export const navLinks = [
   { id: "about", label: "Inicio" },
   { id: "services", label: "Servicios" },
+  { id: "visit", label: "Visítanos" },
   { id: "gallery", label: "Galería" },
   { id: "testimonials", label: "Opiniones" },
-  { id: "visit", label: "Visítanos" },
 ] as const;
 
 export type NavId = (typeof navLinks)[number]["id"];
