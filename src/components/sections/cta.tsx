@@ -4,41 +4,49 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   mailtoUrl,
-  reserveWhatsappMessage,
+  site,
+  tonightWhatsappMessage,
   whatsappUrl,
 } from "@/lib/site-config";
 
 export function CallToAction() {
   return (
-    <section
-      id="contact"
-      className="w-full bg-muted/50 py-12 md:py-24 lg:py-32"
-    >
-      <div className="flex flex-col items-center justify-center space-y-4 text-center">
-        <div className="space-y-2">
-          <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-            ¿Listo para llevar tus partidos al siguiente nivel?
-          </h2>
-          <p className="max-w-[600px] text-muted-foreground md:text-xl">
-            Únete a nuestra comunidad y disfruta de los beneficios de jugar en
-            la mejor cancha de Ubaté.
-          </p>
-        </div>
-        <div className="flex flex-col gap-2 min-[400px]:flex-row">
+    <section id="contact" className="relative isolate overflow-hidden bg-ink py-28 md:py-40">
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(198,255,91,0.12), transparent 60%)",
+        }}
+      />
+      <div className="mx-auto max-w-2xl px-6 text-center">
+        <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-lime">
+          Cierre
+        </span>
+        <h2 className="mt-5 text-4xl font-extrabold leading-[0.95] tracking-[-0.025em] md:text-6xl">
+          El cupo de esta noche se{" "}
+          <span className="text-lime">llena rápido</span>.
+        </h2>
+        <p className="mt-5 text-base text-fg/70 md:text-lg">
+          Reserva en un mensaje y deja el resto a nosotros.
+        </p>
+        <div className="mt-9 flex flex-col items-center gap-3">
           <Link
-            href={whatsappUrl(reserveWhatsappMessage)}
+            href={whatsappUrl(tonightWhatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button size="lg" className="gap-1">
-              Reserva ya
+            <Button size="lg" className="rounded-full px-8 font-bold">
+              Reservar por WhatsApp
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
-          <Link href={mailtoUrl}>
-            <Button variant="outline" size="lg">
-              Contáctanos
-            </Button>
+          <Link
+            href={mailtoUrl}
+            className="font-mono text-[11px] uppercase tracking-[0.22em] text-fg/55 hover:text-fg"
+          >
+            o escríbenos a {site.email}
           </Link>
         </div>
       </div>
