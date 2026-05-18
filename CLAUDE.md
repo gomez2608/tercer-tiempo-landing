@@ -20,7 +20,7 @@ There are no tests in this repo. `npm run build` is the closest thing to a verif
 ## Stack
 
 - **Next.js 15.2.1** App Router, **React 19**, **TypeScript** (strict). Dev uses Turbopack (`next dev --turbopack`).
-- **Tailwind CSS v4** — note: there is **no `tailwind.config.*`**. Theme tokens are declared inline in `src/app/globals.css` via `@import "tailwindcss"` + `@theme inline { ... }`. PostCSS plugin is `@tailwindcss/postcss`. When changing colors/spacing/radius, edit `globals.css`, not a config file.
+- **Tailwind CSS v4** — no `tailwind.config.*`. Design tokens (`--color-ink`, `--color-lime`, `--color-surface`, etc.) live in `src/app/globals.css` under `@theme inline`. shadcn primitives consume those via aliases (`--color-primary` → `--color-lime`, etc.) so you don't need to override components — change the token.
 - **shadcn/ui** (style: `new-york`, baseColor: `neutral`, CSS variables on) configured in `components.json`. Primitives live in `src/components/ui/`. Add new components with `npx shadcn@latest add <name>` — it will respect the aliases below.
 - **Radix UI** primitives (accordion, dialog, navigation-menu, slot) underlie the shadcn components.
 - **lucide-react** for icons (set as `iconLibrary` in `components.json`).
@@ -64,6 +64,16 @@ src/
 - **Images**: import via `@/lib/images` (`images.logo`, `images.fondo`, etc.) instead of importing directly from `@/app/imgs/...`. Keeps asset paths in one place. Filenames are kebab-case — keep them that way.
 - **External links**: always include `target="_blank" rel="noopener noreferrer"` together. The `whatsappUrl()` helper assumes its result is opened in a new tab.
 - **`"use client"`**: only `header.tsx`, `footer.tsx`, and `use-section-navigation.ts` are client components (they need DOM access for smooth scroll). Sections without interactivity stay server components.
+
+## Visual system
+
+The site uses a **dark-only Direction A palette**: Ink `#0A0F0D` background, Surface `#11181A` cards, Lime `#C6FF5B` accent, white-mint `#F4FFF5` text. Headlines use Geist Display weight 800–900 with negative tracking; kicker labels use Geist Mono uppercase at `letter-spacing: 0.25em`. Motion is disciplined: scroll fade-up via `<ScrollReveal>`, hover scale 1.02, sticky mobile CTA. All animations honor `prefers-reduced-motion`.
+
+Global components:
+- `<Wordmark />` — typographic logo (no image)
+- `<OpenNowBadge />` — live "Abierto / Cerrado" pill driven by `useOpenNow`
+- `<StickyMobileCTA />` — appears after hero on mobile
+- `<ScrollReveal>` — wraps section content for fade-up entrance
 
 ## Path aliases
 
