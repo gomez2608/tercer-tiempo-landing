@@ -24,3 +24,12 @@ export const testimonialImages: Record<string, StaticImageData> = {
   santiago,
   luis,
 };
+
+// Gallery images (v1: reuses existing assets; replace with curated photos later)
+export const galleryImages: Record<string, StaticImageData> = {
+  "g-night-1": fondo,
+  "g-field-1": balon,
+  "g-detail-1": andres,
+  "g-day-1": santiago,
+  "g-teams-1": luis,
+};
