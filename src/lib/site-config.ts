@@ -13,6 +13,49 @@ export const site = {
   },
 } as const;
 
+export const businessHours = {
+  open: { hour: 15, minute: 0 },  // 3:00 PM
+  close: { hour: 21, minute: 0 }, // 9:00 PM
+} as const;
+
+export const location = {
+  street: "Carrera 9 #10-51",
+  city: "Ubaté",
+  country: "Colombia",
+  mapsUrl: "https://maps.app.goo.gl/WXS2wrak5dmdEYWk6",
+  /**
+   * Resolved Google Maps embed URL. If empty, the Visit section falls back
+   * to a styled card with a "Ver en Maps →" CTA.
+   */
+  mapEmbedUrl: "",
+} as const;
+
+export const hero = {
+  kicker: "Tercer tiempo · Ubaté",
+  headline: { line1: "Tu cancha.", line2: "Al 100." },
+  sub: "La sintética cubierta de Ubaté, abierta todos los días de 3 a 9. Reserva en un mensaje.",
+  trust: {
+    enabled: true,
+    rating: 4.9,
+    matchesPlayed: 500,
+  },
+} as const;
+
+export type GalleryItem = {
+  key: string;
+  alt: string;
+  caption: string;
+  span: "wide" | "tall" | "regular";
+};
+
+export const gallery: GalleryItem[] = [
+  { key: "g-night-1", alt: "Cancha sintética iluminada de noche", caption: "Nocturna", span: "wide" },
+  { key: "g-field-1", alt: "Vista de la cancha desde la banca", caption: "Cancha", span: "regular" },
+  { key: "g-detail-1", alt: "Detalle del pasto sintético", caption: "Detalle", span: "tall" },
+  { key: "g-day-1", alt: "Cancha cubierta durante el día", caption: "Diurna", span: "regular" },
+  { key: "g-teams-1", alt: "Equipos jugando un partido", caption: "Equipos", span: "wide" },
+];
+
 export function whatsappUrl(text: string): string {
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`;
 }
@@ -35,13 +78,13 @@ export const plans = [
     title: "Cliente frecuente",
     description: "Si has jugado 10 o más veces con nosotros.",
     headline: "1 hora",
-    headlineSuffix: null,
+    headlineSuffix: "gratis",
     bullets: [
-      "Gratis por cada 10 partidos.",
+      "Una hora gratis por cada 10 partidos.",
       "Disponible con nuestra tarjeta cliente frecuente.",
     ],
     cta: {
-      label: "Contáctanos",
+      label: "Inscríbete",
       whatsappMessage: "Hola, quiero ser un cliente frecuente.",
     },
     highlighted: false,
@@ -49,15 +92,15 @@ export const plans = [
   {
     kind: "reserve",
     title: "Reserva",
-    description: "1 hora para disfrutar tu futbol al máximo.",
+    description: "Una hora para tu fútbol sin compromisos.",
     headline: "$50.000",
-    headlineSuffix: "/hora",
+    headlineSuffix: "/ hora",
     bullets: [
-      "Disponibilidad exclusiva.",
-      "Adquiere nuestra tarjeta cliente frecuente.",
+      "Disponibilidad exclusiva durante tu hora.",
+      "Suma puntos para tu tarjeta cliente frecuente.",
     ],
     cta: {
-      label: "Reserva ya",
+      label: "Reservar ya",
       whatsappMessage: "Hola, quiero reservar una cancha.",
     },
     highlighted: true,
@@ -65,12 +108,12 @@ export const plans = [
   {
     kind: "event",
     title: "Celebra con nosotros",
-    description: "Para celebraciones o eventos especiales.",
+    description: "Cumpleaños, integraciones, eventos especiales.",
     headline: null,
     headlineSuffix: null,
-    bullets: ["Cumpleaños", "Eventos especiales", "Asados", "Integraciones"],
+    bullets: ["Cumpleaños", "Eventos especiales", "Asados e integraciones", "Atención dedicada"],
     cta: {
-      label: "Cotiza ya",
+      label: "Cotizar evento",
       whatsappMessage: "Hola, quiero cotizar un evento.",
     },
     highlighted: false,
@@ -103,3 +146,4 @@ export const testimonials = [
 
 export const reserveWhatsappMessage = "Hola, quiero reservar una cancha.";
 export const moreInfoWhatsappMessage = "Hola, quiero más información.";
+export const tonightWhatsappMessage = "Hola, ¿hay cupo para esta noche?";
