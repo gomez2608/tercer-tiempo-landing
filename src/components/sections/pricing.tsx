@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { CheckCircle } from "lucide-react";
+import { Check } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,75 +11,95 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { plans, whatsappUrl } from "@/lib/site-config";
+import { cn } from "@/lib/utils";
 
 export function Pricing() {
   return (
-    <section
-      id="services"
-      className="w-full bg-muted/50 py-8 md:py-20 lg:py-26"
-    >
-      <div className="flex flex-col items-center justify-center space-y-4 text-center">
-        <div className="space-y-2">
-          <Badge variant="default" className="px-3 py-1">
-            Nuestros servicios
-          </Badge>
-          <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-            Precios justos, económicos y simples.
+    <section id="services" className="bg-ink py-24 md:py-32">
+      <div className="mx-auto max-w-[1200px] px-6 md:px-10">
+        <div className="max-w-2xl">
+          <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-lime">
+            Servicios
+          </span>
+          <h2 className="mt-4 text-4xl font-extrabold leading-[0.95] tracking-[-0.02em] md:text-6xl">
+            3 maneras de jugar.
           </h2>
-          <p className="max-w-[900px] text-muted-foreground md:text-xl">
-            ¿Alguna duda? Contáctanos y te ayudaremos a encontrar el plan
-            perfecto para ti.
+          <p className="mt-5 max-w-lg text-base text-fg/70 md:text-lg">
+            Precios justos, sin sorpresas. Reserva una hora, suma puntos cada
+            partido, o monta tu evento.
           </p>
         </div>
-      </div>
 
-      <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3">
-        {plans.map((plan) => (
-          <Card
-            key={plan.kind}
-            className={plan.highlighted ? "relative h-full" : "h-full"}
-          >
-            {plan.highlighted && (
-              <div className="absolute -top-4 left-0 right-0 mx-auto w-fit rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">
-                Más popular
-              </div>
-            )}
-            <CardHeader>
-              <CardTitle>{plan.title}</CardTitle>
-              <CardDescription>{plan.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              {plan.headline && (
-                <div className="mb-4 flex items-baseline">
-                  <span className="text-4xl font-bold">{plan.headline}</span>
-                  {plan.headlineSuffix && (
-                    <span className="ml-1 text-muted-foreground">
-                      {plan.headlineSuffix}
-                    </span>
-                  )}
-                </div>
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
+          {plans.map((plan) => (
+            <Card
+              key={plan.kind}
+              className={cn(
+                "relative flex h-full flex-col border-hairline bg-surface text-fg",
+                plan.highlighted &&
+                  "border-lime/40 ring-1 ring-lime/40 md:-translate-y-3",
               )}
-              <ul className="space-y-3">
-                {plan.bullets.map((bullet) => (
-                  <li key={bullet} className="flex items-center">
-                    <CheckCircle className="mr-2 h-4 w-4 text-primary" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-            <CardFooter>
-              <Link
-                href={whatsappUrl(plan.cta.whatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full"
-              >
-                <Button className="w-full">{plan.cta.label}</Button>
-              </Link>
-            </CardFooter>
-          </Card>
-        ))}
+            >
+              {plan.highlighted && (
+                <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-ink">
+                  Más popular
+                </span>
+              )}
+              <CardHeader className="pt-7">
+                <CardTitle className="text-2xl font-bold">
+                  {plan.title}
+                </CardTitle>
+                <CardDescription className="text-fg/60">
+                  {plan.description}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1">
+                {plan.headline && (
+                  <div className="mb-6 flex items-baseline gap-1.5">
+                    <span className="text-5xl font-black tracking-[-0.03em] text-lime">
+                      {plan.headline}
+                    </span>
+                    {plan.headlineSuffix && (
+                      <span className="text-sm text-fg/55">
+                        {plan.headlineSuffix}
+                      </span>
+                    )}
+                  </div>
+                )}
+                <ul className="space-y-3">
+                  {plan.bullets.map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="flex items-start gap-2.5 text-sm text-fg/85"
+                    >
+                      <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-lime" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+              <CardFooter className="pt-2">
+                <Link
+                  href={whatsappUrl(plan.cta.whatsappMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
+                >
+                  <Button
+                    variant={plan.highlighted ? "default" : "outline"}
+                    className={cn(
+                      "w-full rounded-full font-bold",
+                      !plan.highlighted &&
+                        "border-fg/25 bg-transparent text-fg hover:bg-fg/5 hover:text-fg",
+                    )}
+                  >
+                    {plan.cta.label}
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );
