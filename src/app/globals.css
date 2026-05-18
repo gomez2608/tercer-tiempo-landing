@@ -10,7 +10,7 @@
   --color-lime: #C6FF5B;
   --color-lime-deep: #8FC92E;
   --color-fg: #F4FFF5;
-  --color-muted: #6B7775;
+  --color-text-muted: #6B7775;
   --color-hairline: rgba(255, 255, 255, 0.08);
   --color-status-warn: #FFD43B;
   --color-status-closed: #FF6B5B;
@@ -37,7 +37,7 @@
   --color-secondary: var(--color-elevated);
   --color-secondary-foreground: var(--color-fg);
   --color-muted: var(--color-elevated);
-  --color-muted-foreground: var(--color-muted);
+  --color-muted-foreground: var(--color-text-muted);
   --color-accent: var(--color-lime);
   --color-accent-foreground: var(--color-ink);
   --color-destructive: var(--color-status-closed);
