@@ -1,12 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import { Facebook, Instagram, type LucideIcon } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
 
+import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { Wordmark } from "@/components/wordmark";
 import { useSectionNavigation } from "@/hooks/use-section-navigation";
 import { formatHour } from "@/lib/format-time";
-import { images } from "@/lib/images";
 import {
   businessHours,
   moreInfoWhatsappMessage,
@@ -17,15 +18,21 @@ import {
 
 const productLinkIds = ["services", "gallery", "testimonials", "visit"] as const;
 
-const socialLinks = [
-  { href: site.socials.facebook, image: images.facebook, label: "Facebook" },
-  { href: site.socials.instagram, image: images.instagram, label: "Instagram" },
+type SocialIcon = LucideIcon | ComponentType<SVGProps<SVGSVGElement>>;
+
+const socialLinks: ReadonlyArray<{
+  href: string;
+  Icon: SocialIcon;
+  label: string;
+}> = [
+  { href: site.socials.facebook, Icon: Facebook, label: "Facebook" },
+  { href: site.socials.instagram, Icon: Instagram, label: "Instagram" },
   {
     href: whatsappUrl(moreInfoWhatsappMessage),
-    image: images.whatsapp,
+    Icon: WhatsAppIcon,
     label: "WhatsApp",
   },
-] as const;
+];
 
 export function Footer() {
   const { handleNavClick } = useSectionNavigation();
@@ -44,22 +51,16 @@ export function Footer() {
             <Wordmark size="md" withKicker />
             <p className="max-w-xs text-sm text-fg/55">{site.description}</p>
             <div className="flex gap-3">
-              {socialLinks.map((s) => (
+              {socialLinks.map(({ href, Icon, label }) => (
                 <Link
-                  key={s.label}
-                  href={s.href}
+                  key={label}
+                  href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-hairline bg-elevated p-2.5 transition-colors hover:border-lime/40"
+                  aria-label={`${label} de ${site.name}`}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-hairline bg-elevated text-fg/70 transition-colors hover:border-lime/40 hover:text-lime"
                 >
-                  <Image
-                    src={s.image}
-                    alt={`${s.label} ${site.name}`}
-                    width={20}
-                    height={20}
-                    className="opacity-80"
-                  />
-                  <span className="sr-only">{s.label}</span>
+                  <Icon className="h-4 w-4" />
                 </Link>
               ))}
             </div>

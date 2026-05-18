@@ -48,7 +48,10 @@ export function Gallery() {
                 alt={item.alt}
                 fill
                 sizes="(min-width: 768px) 33vw, 50vw"
-                className="object-cover transition-opacity group-hover:opacity-95"
+                className={cn(
+                  "object-cover transition-opacity group-hover:opacity-95",
+                  item.objectPosition,
+                )}
               />
               <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-4">
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg/85">

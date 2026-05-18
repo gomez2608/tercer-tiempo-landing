@@ -25,7 +25,7 @@ export function Wordmark({
           sizeMap[size],
         )}
       >
-        Tercer<span className="text-lime"> tiempo</span>
+        Tercer<span className="text-lime"> Tiempo</span>
       </span>
       {withKicker && (
         <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.28em] text-fg/55">

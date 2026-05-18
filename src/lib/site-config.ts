@@ -1,6 +1,6 @@
 export const site = {
-  name: "Tercer tiempo Ubaté",
-  shortName: "Tercer tiempo",
+  name: "Tercer Tiempo Ubaté",
+  shortName: "Tercer Tiempo",
   description: "La cancha sintética todo en 1 en Ubaté.",
   url: "https://tercertiempo-ubate.example.com",
   whatsappNumber: "573112311293",
@@ -31,9 +31,9 @@ export const location = {
 } as const;
 
 export const hero = {
-  kicker: "Tercer tiempo · Ubaté",
+  kicker: "Tercer Tiempo · Ubaté",
   headline: { line1: "Tu cancha.", line2: "Al 100." },
-  sub: "La sintética cubierta de Ubaté, abierta todos los días de 3 a 9. Reserva en un mensaje.",
+  sub: "La sintética cubierta de Ubaté, abierta todos los días de 3 pm a 9 pm. Reserva en un mensaje.",
   trust: {
     enabled: true,
     rating: 4.9,
@@ -46,14 +46,42 @@ export type GalleryItem = {
   alt: string;
   caption: string;
   span: "wide" | "tall" | "regular";
+  /** Tailwind object-position class (e.g. "object-bottom") for the tile crop. */
+  objectPosition?: string;
 };
 
 export const gallery: GalleryItem[] = [
-  { key: "g-night-1", alt: "Cancha sintética iluminada de noche", caption: "Nocturna", span: "wide" },
-  { key: "g-field-1", alt: "Vista de la cancha desde la banca", caption: "Cancha", span: "regular" },
-  { key: "g-detail-1", alt: "Detalle del pasto sintético", caption: "Detalle", span: "tall" },
-  { key: "g-day-1", alt: "Cancha cubierta durante el día", caption: "Diurna", span: "regular" },
-  { key: "g-teams-1", alt: "Equipos jugando un partido", caption: "Equipos", span: "wide" },
+  {
+    key: "g-night-1",
+    alt: "Cancha sintética iluminada por la noche",
+    caption: "Nocturna",
+    span: "wide",
+  },
+  {
+    key: "g-field-1",
+    alt: "Detalle del balón sobre el pasto sintético",
+    caption: "El campo",
+    span: "regular",
+  },
+  {
+    key: "g-detail-1",
+    alt: "Dos jugadores posando frente al arco antes del partido",
+    caption: "Antes del partido",
+    span: "tall",
+  },
+  {
+    key: "g-day-1",
+    alt: "Vista interior de la cancha cubierta durante el día",
+    caption: "Diurna",
+    span: "regular",
+  },
+  {
+    key: "g-teams-1",
+    alt: "Equipo de fútbol posando frente al arco",
+    caption: "Nuestros equipos",
+    span: "wide",
+    objectPosition: "object-[center_60%]",
+  },
 ];
 
 export function whatsappUrl(text: string): string {
