@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -42,7 +43,19 @@ export function Header() {
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <Link href="#about" onClick={(e) => handleNavClick("about", e)}>
+      <Link
+        href="#about"
+        onClick={(e) => handleNavClick("about", e)}
+        className="flex items-center gap-3"
+      >
+        <Image
+          src="/icons/icon-192.png"
+          alt=""
+          width={40}
+          height={40}
+          className="h-10 w-10 rounded-full"
+          priority
+        />
         <Wordmark size="md" withKicker className="hidden md:inline-flex" />
         <Wordmark size="md" className="md:hidden" />
       </Link>
