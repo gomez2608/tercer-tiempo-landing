@@ -12,7 +12,7 @@ import {
   whatsappUrl,
 } from "@/lib/site-config";
 
-const productLinkIds = ["services", "features", "testimonials", "contact"] as const;
+const productLinkIds = ["services", "gallery", "testimonials", "visit"] as const;
 
 const socialLinks = [
   {

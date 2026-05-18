@@ -63,11 +63,11 @@ export function whatsappUrl(text: string): string {
 export const mailtoUrl = `mailto:${site.email}`;
 
 export const navLinks = [
-  { id: "about", label: "¿Quiénes somos?" },
-  { id: "services", label: "Nuestros servicios" },
-  { id: "features", label: "Características" },
+  { id: "about", label: "Inicio" },
+  { id: "services", label: "Servicios" },
+  { id: "gallery", label: "Galería" },
   { id: "testimonials", label: "Opiniones" },
-  { id: "contact", label: "Contáctanos" },
+  { id: "visit", label: "Visítanos" },
 ] as const;
 
 export type NavId = (typeof navLinks)[number]["id"];
