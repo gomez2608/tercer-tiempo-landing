@@ -121,7 +121,7 @@ export const plans = [
     kind: "reserve",
     title: "Reserva",
     description: "Una hora para tu fútbol sin compromisos.",
-    headline: "$50.000",
+    headline: "$55.000",
     headlineSuffix: "/ hora",
     bullets: [
       "Disponibilidad exclusiva durante tu hora.",
